@@ -63,13 +63,13 @@ The workflow is simple, you provide login credentials and API endpoint. RESTful 
   ![](https://raw.githubusercontent.com/adlytaibi/ss/master/sgws-acnt/table.png)
 
 ## Further reading
-[Docker Compose](https://docs.docker.com/compose/)
-[Apache](https://httpd.apache.org/)
-[PHP](http://www.php.net/)
-[DataTables](https://datatables.net/)
-[Bootstrap](https://getbootstrap.com/)
-[jQuery](https://jquery.com/)
-[Httpful](https://github.com/nategood/httpful)
+> [Docker Compose](https://docs.docker.com/compose/)
+> [Apache](https://httpd.apache.org/)
+> [PHP](http://www.php.net/)
+> [DataTables](https://datatables.net/)
+> [Bootstrap](https://getbootstrap.com/)
+> [jQuery](https://jquery.com/)
+> [Httpful](https://github.com/nategood/httpful)
 
 ## Notes
 This is not an official NetApp repository. NetApp Inc. is not affiliated with the posted examples in any way.
