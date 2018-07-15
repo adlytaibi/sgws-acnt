@@ -184,7 +184,7 @@ function loginform($uri) {
           </button>
         </div>
         <div class="modal-body">
-          <input name="endpoint" class="form-control input-sm chat-input" value="'.$endpoint.'" placeholder="endpoint hostname or IP address" pattern="^(([a-zA-Z]|[a-zA-Z][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z]|[A-Za-z][A-Za-z0-9\-]*[A-Za-z0-9])$" required />
+          <input name="endpoint" class="form-control input-sm chat-input" value="'.$endpoint.'" placeholder="endpoint hostname or IP address" pattern="^((([a-zA-Z]|[a-zA-Z][a-zA-Z0-9-]*[a-zA-Z0-9]).)*([A-Za-z]|[A-Za-z][A-Za-z0-9-]*[A-Za-z0-9])|(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))$" required />
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
