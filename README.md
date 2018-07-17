@@ -29,9 +29,9 @@ The workflow is simple, you provide login credentials and API endpoint. RESTful 
     mkdir web/sslkeys
     ```
 
-* Copy your host.pem and host.key certificate files to web/sslkeys
+    * Copy your host.pem and host.key certificate files to web/sslkeys
 
-* (Optionally) Self-sign your own certificates (modify `web` to match your server)
+    * (Optionally) Self-sign your own certificates (modify `web` to match your server)
 
     ```
     openssl req -x509 -nodes -newkey rsa:4096 -keyout web/sslkeys/host.key -out web/sslkeys/host.pem -days 365 -subj "/C=CA/ST=Ontario/L=Toronto/O=Storage/OU=Team/CN=web"
@@ -48,19 +48,19 @@ The workflow is simple, you provide login credentials and API endpoint. RESTful 
     ```
     https://<IP_address>
     ```
-	(or if accessing from the same guest https://localhost)
+    (or if accessing from the same guest https://localhost)
 
-  ![](https://raw.githubusercontent.com/adlytaibi/ss/master/sgws-acnt/login.png)
+    ![](https://raw.githubusercontent.com/adlytaibi/ss/master/sgws-acnt/login.png)
 
-5. Enter the API endpoint which typically your GMI (Grid Management Interface) or Admin node's hostname or IP_address. The user you login with requires a minimum of `Tenant Accounts` group management permission.
+5. Enter the API endpoint which is typically your GMI (Grid Management Interface) or Admin node's hostname or IP_address. The user you login with requires a minimum of `Tenant Accounts` group management permission.
 
-  ![](https://raw.githubusercontent.com/adlytaibi/ss/master/sgws-acnt/endpoint_entry.png)
+    ![](https://raw.githubusercontent.com/adlytaibi/ss/master/sgws-acnt/endpoint_entry.png)
 
-  ![](https://raw.githubusercontent.com/adlytaibi/ss/master/sgws-acnt/endpoint_saved.png)
+    ![](https://raw.githubusercontent.com/adlytaibi/ss/master/sgws-acnt/endpoint_saved.png)
 
 6. Sort, filter, pagination and logout to clear API authorization
 
-  ![](https://raw.githubusercontent.com/adlytaibi/ss/master/sgws-acnt/table.png)
+    ![](https://raw.githubusercontent.com/adlytaibi/ss/master/sgws-acnt/table.png)
 
 ## Further reading
 * [Docker Compose](https://docs.docker.com/compose/)
