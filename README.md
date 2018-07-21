@@ -29,13 +29,59 @@ The workflow is simple, you provide login credentials and API endpoint. RESTful 
     mkdir web/sslkeys
     ```
 
-    * Copy your host.pem and host.key certificate files to web/sslkeys
+    1. Self-sign your own certificates: (modify `web` to match your server)
 
-    * (Optionally) Self-sign your own certificates (modify `web` to match your server)
+        ```
+        openssl req -x509 -nodes -newkey rsa:4096 -keyout web/sslkeys/host.key -out web/sslkeys/host.pem -days 365 -subj "/C=CA/ST=Ontario/L=Toronto/O=Storage/OU=Team/CN=web"
+        ```
 
-    ```
-    openssl req -x509 -nodes -newkey rsa:4096 -keyout web/sslkeys/host.key -out web/sslkeys/host.pem -days 365 -subj "/C=CA/ST=Ontario/L=Toronto/O=Storage/OU=Team/CN=web"
-    ```
+    2. Or sign your SSL certificate with a CA:
+
+        1. Create private key, generate a certificate signing request
+
+            ```
+            openssl genrsa -out web/sslkeys/host.key 2048
+            ```
+
+        2. Create a Subject Alternate Name configuration file `san.cnf` in 'web/sslkeys'
+
+            ```
+            [req]
+            distinguished_name = req_distinguished_name
+            req_extensions = v3_req
+            prompt = no
+            default_md = sha256
+            [req_distinguished_name]
+            C = CA
+            ST = Ontario
+            L = Toronto
+            O = Storage
+            OU = Storage
+            CN = acnt
+            [v3_req]
+            keyUsage = keyEncipherment, dataEncipherment
+            extendedKeyUsage = serverAuth
+            subjectAltName = @alt_names
+            [alt_names]
+            DNS.1 = acnt
+            DNS.2 = acnt.acme.net
+            IP.1 = 1.2.3.4
+            ```
+
+        3. Generate a certificate signing request
+
+            ```
+            cd web/sslkeys/
+            openssl req -new -sha256 -nodes -key host.key -out acnt.csr -config san.cnf
+            ```
+
+        4. In your CA portal use the `acnt.csr` output and the following SAN entry to sign the certificate, you should get a `certnew.pem` that can be saved as `host.pem`
+
+            ```
+            san:dns=acnt.acme.net&ipaddress=1.2.3.4
+            ```
+
+        5. Copy your `host.pem` certificate files to `web/sslkeys`
 
 3. docker-compose
 
